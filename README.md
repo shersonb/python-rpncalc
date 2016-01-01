@@ -28,13 +28,15 @@ calculators.
 The format of a piecewise-defined function is similar to a dict, and
 takes the form:
 
-```u"""
+```
+u"""
 ⟪
     « case1 » : « formula1 »,
     « case2 » : « formula2 »,
     ...
 ⟫
-"""```
+"""
+```
 
 Each « case# » is an RPNProgram object that is expected to return either a
 BooleanType or a boolean numpy array. In the case of overlapping cases,
@@ -45,7 +47,8 @@ Each « formula# » is either an RPNProgram or a PW_Function object.
 
 For example, here is an implementation of the absolute value function:
 
-```>>> abs = rpncalc.decode(u"""⟪
+```
+>>> abs = rpncalc.decode(u"""⟪
 ...     « x 0 ≥ » : « x »,
 ...     « x 0 ≤ » : « x +/- »
 ... ⟫""")
@@ -53,7 +56,8 @@ For example, here is an implementation of the absolute value function:
 >>> abs(x=3)
 3
 >>> abs(x=-4)
-4```
+4
+```
 
 The PW_Function also provides a findcase method, which allows one to find
 the case applicable to the provided keyword arguments. Its return value will
